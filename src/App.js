@@ -4,6 +4,7 @@ import "./App.css";
 function App() {
 	const [count, setCount] = useState(0);
 	const [dice, setDice] = useState(1);
+	const [dice2, setDice2] = useState(1);
 
 	console.log(dice);
 
@@ -24,10 +25,7 @@ function App() {
 	// function that spits random number
 	const roll = () => {
 		setDice(Math.ceil(Math.random() * 5 + 1));
-	};
-
-	const mapDice = () => {
-		return dice.map((num) => <h1>{num}</h1>);
+		setDice2(Math.ceil(Math.random() * 5 + 1));
 	};
 
 	return (
@@ -39,6 +37,9 @@ function App() {
 
 			<h1>Dice Game</h1>
 			<span>{dice}</span>
+			<br />
+			<span>{dice2}</span>
+			<br />
 			<button onClick={roll}>Roll</button>
 		</div>
 	);
