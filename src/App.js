@@ -1,25 +1,31 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
+import "./App.css";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+	const [count, setCount] = useState(0);
+
+	// function to decrement count
+	const decrementCount = () => {
+		if (count > -10) {
+			setCount(count - 1);
+		}
+	};
+
+	// function to increment count
+	const incrementCount = () => {
+		if (count < 10) {
+			setCount(count + 1);
+		}
+	};
+
+	return (
+		<div className="App">
+			<h1>Counter Punch</h1>
+			<button onClick={decrementCount}>-</button>
+			<span>{count}</span>
+			<button onClick={incrementCount}>+</button>
+		</div>
+	);
 }
 
 export default App;
